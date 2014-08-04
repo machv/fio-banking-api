@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Mach.Banking.Fio
 {
     [DataContract]
-    class AccountStatementResponse
+    public class TransactionList
     {
-        [DataMember(Name = "accountStatement")]
-        public AccountStatement AccountStatement { get; set; }
+        [DataMember(Name = "transaction")]
+        public List<Transaction> Transactions { get; set; }
     }
 }

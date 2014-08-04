@@ -45,8 +45,8 @@ namespace Mach.Banking
         [DataMember(Name = "closingBalance")]
         public decimal ClosingBalance { get; set; }
 
-        //[DataMember(Name = "dateEnd")]
-        //public DateTime DateEnd { get; set; }
+        [DataMember(Name = "dateEnd")]
+        public string DateEndReturned { get; set; }
         [DataMember(Name = "yearList")]
         public int? Year { get; set; }
         [DataMember(Name = "idList")]
@@ -62,10 +62,8 @@ namespace Mach.Banking
         private string DateStartReturned { get; set; }
 
         [IgnoreDataMember]
-        // This property is used by your code.
         public DateTime DateStart
         {
-            // Replace "o" with whichever DateTime format specifier you need.
             get
             {
                 return DateTime.ParseExact(DateStartReturned.Substring(0, DateStartReturned.IndexOf("+")), "yyyy-MM-dd", CultureInfo.InvariantCulture);
@@ -73,6 +71,19 @@ namespace Mach.Banking
             set
             {
                 DateStartReturned = value.ToString("o");
+            }
+        }
+
+        [IgnoreDataMember]
+        public DateTime DateEnd
+        {
+            get
+            {
+                return DateTime.ParseExact(DateEndReturned.Substring(0, DateStartReturned.IndexOf("+")), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            }
+            set
+            {
+                DateEndReturned = value.ToString("o");
             }
         }
     }

@@ -44,9 +44,16 @@
     <Compile Include="Entities\AccountStatement.cs" />
     <Compile Include="Entities\AccountStatementInfo.cs" />
     <Compile Include="Entities\AccountStatementResponse.cs" />
+    <Compile Include="Entities\FioColumnAttribute.cs" />
+    <Compile Include="Entities\Transaction.cs" />
+    <Compile Include="Entities\TransactionItem.cs" />
+    <Compile Include="Entities\TransactionList.cs" />
     <Compile Include="FioBank.cs" />
     <Compile Include="JsonSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Transaction.SerializationFields.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Text;
 
@@ -18,10 +19,13 @@ namespace Mach.Banking.Fio
         {
             WebClient wc = new WebClient();
             string address = BuildAddress("periods", "transactions", from.ToString("yyyy-MM-dd"), to.ToString("yyyy-MM-dd"));
-            string result = wc.DownloadString(address);
 
+            AccountStatementResponse statement;
             JsonSerializer serializer = new JsonSerializer();
-            AccountStatementResponse statement = serializer.Deserialize<AccountStatementResponse>(result);
+            using (Stream stream = wc.OpenRead(address))
+            {
+                statement = serializer.Deserialize<AccountStatementResponse>(stream);
+            }
         }
 
         private string BuildAddress(string action, string document, params string[] parameters)

@@ -38,5 +38,11 @@ namespace Mach.Banking
                 }
             }
         }
+
+        public T Deserialize<T>(Stream stream) where T : class
+        {
+            var serializer = new DataContractJsonSerializer(typeof(T));
+            return serializer.ReadObject(stream) as T;
+        }
     }
 }
