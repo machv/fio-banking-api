@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mach.Banking.fio", "Mach.Banking.Fio\Mach.Banking.Fio.csproj", "{6F194AED-2C4C-4C87-BAF8-7824ADFB1091}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mach.Banking.Fio", "Mach.Banking.Fio\Mach.Banking.Fio.csproj", "{6F194AED-2C4C-4C87-BAF8-7824ADFB1091}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aps.Debtis.Clients.CoolCredit.BankStatements", "Aps.Debtis.Clients.CoolCredit.BankStatements\Aps.Debtis.Clients.CoolCredit.BankStatements.csproj", "{404A38F7-29A9-4488-A8A5-4475DAEC34F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{74A755A2-B3BF-4951-92F3-B90326A45467}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
