@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Mach.Banking.Fio
 {
     [DataContract]
-    class AccountStatementResponse
+    public class AccountStatementResponse
     {
         [DataMember(Name = "accountStatement")]
         public AccountStatement AccountStatement { get; set; }
