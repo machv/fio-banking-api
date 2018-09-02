@@ -8,14 +8,14 @@ namespace Mach.Banking.Fio
     public class FioBank
     {
         private const string _base = "https://www.fio.cz/ib_api/rest/";
-        private string _token;
+        private readonly string _token;
 
         public FioBank(string token)
         {
             _token = token;
         }
 
-        public void GetTransactions(DateTime from, DateTime to)
+        public AccountStatementResponse GetTransactions(DateTime from, DateTime to)
         {
             WebClient wc = new WebClient();
             string address = BuildAddress("periods", "transactions", from.ToString("yyyy-MM-dd"), to.ToString("yyyy-MM-dd"));
@@ -25,6 +25,7 @@ namespace Mach.Banking.Fio
             using (Stream stream = wc.OpenRead(address))
             {
                 statement = serializer.Deserialize<AccountStatementResponse>(stream);
+                return statement;
             }
         }
 

@@ -48,23 +48,33 @@ namespace Mach.Banking.Fio
                         info.SetValue(this, value, null);
                     }
 
-                    if (info.PropertyType == typeof(decimal))
+                    else if (info.PropertyType == typeof(int))
+                    {
+                        int value = int.Parse(item.Value);
+                        info.SetValue(this, value, null);
+                    }
+
+                    else if (info.PropertyType == typeof(decimal))
                     {
                         decimal value = decimal.Parse(item.Value, CultureInfo.InvariantCulture);
                         info.SetValue(this, value, null);
                     }
 
-                    if (info.PropertyType == typeof(string))
+                    else if (info.PropertyType == typeof(string))
                     {
                         info.SetValue(this, item.Value, null);
                     }
 
-                    if (info.PropertyType == typeof(DateTime))
+                    else if (info.PropertyType == typeof(DateTime))
                     {
                         DateTime date = DateTime.ParseExact(item.Value.Substring(0, item.Value.IndexOf("+")), "yyyy-MM-dd", CultureInfo.InvariantCulture);
                         info.SetValue(this, date, null);
                     }
 
+                    else
+                    { 
+                        throw new NotImplementedException("Unknown property type");
+                    }
                     string name = item.Name;
                 }
             }
